@@ -6,14 +6,21 @@ using LibVLCSharp.WPF;
 
 namespace LibVLCSharp_MultiVideoCrash;
 
+public static class Constants
+{
+    public const string VlcPath = @"c:\Program Files\VideoLAN\VLC\";
+    public const string VideoFileName = @"c:\home\Videos\sol5_1920_av01.mkv";
+}
+
 public static class Program
 {
+    
     [STAThread]
     public static void Main()
     {
         try
         {
-            Core.Initialize(@"c:\Program Files\VideoLAN\VLC\");
+            Core.Initialize(Constants.VlcPath);
 
             App app = new();
             app.Run();
@@ -70,7 +77,7 @@ public class MainWindow
         Loaded += (_, _) =>
         {
             ForAllVideoViews(view => view.MediaPlayer = new MediaPlayer(_libVlc));
-            ForAllVideoViews(view => view.MediaPlayer!.Play(new Media(_libVlc, @"c:\home\Videos\sol5_1920_av01.mkv")));
+            ForAllVideoViews(view => view.MediaPlayer!.Play(new Media(_libVlc, Constants.VideoFileName)));
         };
     }
     
