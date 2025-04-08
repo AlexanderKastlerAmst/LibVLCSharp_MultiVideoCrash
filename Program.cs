@@ -40,7 +40,7 @@ public class App
 public class MainWindow
     : Window
 {
-    private readonly LibVLC _libVlc = new LibVLC();
+    private readonly LibVLC _libVlc = new ();
     private readonly VideoView[] _videoViews;
     
     public MainWindow()
@@ -53,7 +53,6 @@ public class MainWindow
 
         _videoViews =
         [
-            new VideoView(),
             new VideoView(),
             new VideoView()
         ];
