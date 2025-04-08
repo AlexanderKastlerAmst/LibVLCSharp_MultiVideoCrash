@@ -47,7 +47,7 @@ public class App
 public class MainWindow
     : Window
 {
-    private readonly LibVLC _libVlc = new ();
+    private readonly LibVLC _libVlc = new (enableDebugLogs: true);
     private readonly VideoView[] _videoViews;
     
     public MainWindow()
